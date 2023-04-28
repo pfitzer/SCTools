@@ -2,12 +2,22 @@ import configparser
 import os.path
 import shutil
 import subprocess
+import sys
 import tempfile
 from tkinter import filedialog as fd
 
 import customtkinter
 
 customtkinter.set_appearance_mode("dark")
+
+
+def resource_path(relative_path):
+    """
+    Get absolute path to resource, works for dev and for PyInstaller
+    see https://stackoverflow.com/a/44352931
+    """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
 
 
 class App(customtkinter.CTk):
@@ -22,7 +32,7 @@ class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
 
-        self.iconbitmap(os.path.join(os.getcwd(), 'logo_256x256.ico'))
+        self.iconbitmap(resource_path('logo_256x256.ico'))
 
         self.conf_data = None
         self.directory = None
