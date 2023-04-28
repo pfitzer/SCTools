@@ -2,3 +2,4 @@ build/
 dist/
 output/
 venv/
+.idea
