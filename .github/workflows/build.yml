@@ -35,7 +35,6 @@ jobs:
         with:
           nuitka-version: main
           script-name: scTools.py
-          onefile: true
           standalone: true
           enable-plugins: tk-inter
           disable-console: true
@@ -54,4 +53,4 @@ jobs:
           name: scTools ${{ github.ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
           bodyFile: "README.md"
-          artifacts: "scTools*, build/scTools*"
+          artifacts: "build/scTools.zip"
