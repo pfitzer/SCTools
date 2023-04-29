@@ -32,7 +32,7 @@ class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
 
-        self.iconbitmap(resource_path('logo_256x256.ico'))
+        # self.iconbitmap(resource_path('logo_256x256.ico'))
 
         self.conf_data = None
         self.directory = None
