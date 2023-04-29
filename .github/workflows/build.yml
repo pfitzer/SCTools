@@ -37,6 +37,8 @@ jobs:
           onefile: true
           standalone: true
           enable-plugins: tk-inter
+          windows-disable-console: true
+          windows-icon-from-ico: logo_256x256.ico
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
