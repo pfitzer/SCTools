@@ -48,12 +48,10 @@ jobs:
           path: build/scTools.exe
 
       - name: Create Release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: ncipollo/release-action@v1
         with:
-          tag_name: ${{ github.ref }}
-          release_name: scTools ${{ github.ref }}
-          artifacts: "scTools.*"
-          draft: false
-          prerelease: false
+          tag: ${{ github.ref }}
+          name: scTools ${{ github.ref }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          bodyFile: "README.md"
+          artifacts: "scTools*, build/scTools*"
