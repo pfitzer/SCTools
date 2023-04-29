@@ -38,6 +38,7 @@ jobs:
           standalone: true
           enable-plugins: tk-inter
           disable-console: true
+          mingw64: true
           windows-icon-from-ico: logo_256x256.ico
 
       - name: Upload Artifact
@@ -53,4 +54,4 @@ jobs:
           name: scTools ${{ github.ref }}
           token: ${{ secrets.GITHUB_TOKEN }}
           bodyFile: "README.md"
-          artifacts: "build/scTools.zip"
+          artifacts: "*scTools.zip"
