@@ -3,7 +3,8 @@ name: Build
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: ["main"]
+    tags:
+      - '*'
 
 jobs:
 
@@ -45,3 +46,14 @@ jobs:
         with:
           name: scTools
           path: build/scTools.exe
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          artifacts: "scTools.*"
+          draft: false
+          prerelease: false
